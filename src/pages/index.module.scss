@@ -1,0 +1,59 @@
+@import '@styles/_theme.scss';
+@import '@styles/_breakpoints.scss';
+
+.container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > h1 {
+    color: $colorPrimary;
+  }
+}
+
+#process .row {
+	width: 85vw;
+	margin: 0 auto;
+	display: flex;
+  align-items: flex-start;
+  
+  .column {
+    width: 33.333%;
+    padding: 0 25px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    // opacity: 0;
+  }
+  
+  img {
+    height: 50px;
+  }
+
+  h5 {
+    // font-family: 'Raleway'
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+}
+
+
+@media only screen and (max-width: 760px) {
+  #process .row  {
+    flex-direction: column;
+  }  
+
+  .column {
+    width: 100%;
+  }
+}
+	

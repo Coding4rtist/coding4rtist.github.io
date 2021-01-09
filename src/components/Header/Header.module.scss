@@ -1,0 +1,159 @@
+@import '@styles/_theme.scss';
+
+.header {
+  height: $headerHeight;
+  // background: $headerColor; 
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // padding: 0 14vw;
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-top: 2%;
+}
+
+.header-banner {
+  height: 100vh;
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-top: 2%;
+  background: #ccc; 
+}
+
+.header-container {
+  padding: 0 1.66667rem;
+  max-width: 1228px;
+  position: relative;
+  margin: auto;
+  // height: 100%;
+}
+
+.logo-container {
+  // display: flex;
+  // align-items: center;
+  // position: absolute;
+  // float: left;
+  // height: 100%;
+  // width: 40px;
+  float: left;
+}
+
+.menu {
+  float: right;
+  margin-top: 6px;
+
+  a {
+    display: inline-block;
+    letter-spacing: 1.75px;
+    color: #8f8f8f;
+    // text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    // font-size: 17px;
+    margin-right: 30px;
+    // cursor: none;
+    user-select: none;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &:hover{
+      color:#000;
+    }
+  }
+
+  .active {
+    color:#000 !important;
+  }
+  
+}
+
+.menu-alt {
+  float: right;
+  margin-top: 6px;
+
+  a {
+    display: inline-block;
+    letter-spacing: 1.75px;
+    color: #e6e6e6;
+    // text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    // font-size: 17px;
+    margin-right: 30px;
+    // cursor: none;
+    user-select: none;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &:hover{
+      color: #fff;
+    }
+  }
+
+    .active {
+      color:#fff !important;
+    }
+
+}
+
+
+
+
+
+.title {
+  // margin: 0;
+  text-align: center;
+  // font-size: 72px;
+  font-size: 5.5vw;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  padding-top: 30vh;
+  clear: both;
+}
+
+.kicker {
+  text-align: center;
+  // font-size: 72px;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding-top: 30px;
+  // margin-bottom: 20px;
+  // padding-top: 30vh;
+  // clear: both;
+}
+
+.down-arrow {
+  position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -26px;
+    background: transparent;
+    border: none;
+}
+
+.down-arrow:focus {
+  outline:0;
+}
+
+@media screen and (min-width: 992px) {
+  
+}
+
+@media screen and (min-width: 1170px) {
+  .header-container {
+    padding: 0 0.77778rem 0 0.77778rem;
+  }
+}

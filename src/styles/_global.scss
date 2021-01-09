@@ -1,0 +1,85 @@
+@import '@styles/_theme.scss';
+@import '@styles/_mixins.scss';
+
+html {
+  // add site level custom font here, if applicable
+  // font-family: 'Helvetica Neue', 'sans-serif';
+  font-family: 'Lato', sans-serif;
+  @include smooth-font;
+  @include font-size-reset;
+  color: $textPrimary;
+  background-color: $colorBG;
+  overflow: hidden;
+}
+
+body {
+  // add site level custom font here, if applicable
+  // font-family: 'Helvetica Neue', 'sans-serif';
+  font-family: 'Lato', sans-serif;
+  @include smooth-font;
+  @include font-size-reset;
+  color: $textPrimary;
+  line-height: 1.6;
+  background-color: $colorBG;
+  // cursor: none;
+  
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+a {
+  color: $text-white;
+  //font-weight: 700;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+// markdown override
+div p img {
+  display: block;
+  margin: auto;
+  max-width: 75%;
+}
+
+img {
+  user-drag: none;
+}
+
+.tl-edges {
+  overflow: visible;
+}
+
+.title-text {
+  position: absolute;
+  top: 400px;
+  color: #fff;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 30px;
+  width: 100vw;
+  text-align: center;
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.banner-container {
+  // height: 560px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+
+.text-container {
+  width: 50vw;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  p {
+    text-align: justify;
+  }
+}
