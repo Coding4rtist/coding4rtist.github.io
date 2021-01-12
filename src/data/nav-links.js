@@ -1,5 +1,6 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+// import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { Link } from "gatsby"
 
 const data = [
   {
@@ -34,7 +35,7 @@ const data = [
 export default({styleClass, activeStyleClass}) => {
   const tempLinks = data.map(link => {
     return (
-      <AniLink key={link.id} external="true"  to={link.url} activeClassName={activeStyleClass} swipe direction="up" top="entry" duration={0.8}>{link.text}</AniLink>
+      <Link key={link.id} to={link.url} activeClassName={activeStyleClass}>{link.text}</Link>
     )
   })
 

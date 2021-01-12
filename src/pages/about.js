@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '@components/Layout'
+// import Layout from '@components/Layout'
 import SEO from '@components/seo'
 import SectionTitle from '@components/SectionTitle'
 import Img from "gatsby-image"
@@ -8,8 +8,9 @@ import { graphql } from 'gatsby'
 
 import { SocialLink } from '../data/social-links'
 
-const AboutPage = ({ data }) => (
-  <Layout>
+const AboutPage = ({ data, location }) => (
+  // <Layout location={location}>
+  <>
     <SEO title="About" />
 
     <Img fluid={data.file.childImageSharp.fluid} objectFit="cover" objectPosition="50% 50%" style={{width: '300px', borderRadius: '50%', marginBottom: '50px'}} draggable={false}/> 
@@ -22,7 +23,7 @@ const AboutPage = ({ data }) => (
     </div>
     <SectionTitle title="CURIOSITY" subtitle="Why Coding4rtist?"/>
     <div className="text-container">
-      <p>The nickname "CodingArtist" (@coding4rtist) represents what I usually do in my spare time (games/apps development and 3d render) and my personality: half logical and analytical, half creative and passionate. Moreover, C.A. are also my initials.</p>
+      <p>The nickname "CodingArtist" (@coding4rtist) represents what I usually do in my spare time (games/apps development and 3D art) and my personality: half logical and analytical, half creative and passionate. Moreover, C.A. are also my initials.</p>
       <p>I've always had found very intriguing to take something abstract like an idea that was in my head and turn it into something real.</p>
       <p>I guess lately, art has become almost a necessity for me, it's a way to express what I am really feeling.</p>
     </div>
@@ -40,7 +41,7 @@ const AboutPage = ({ data }) => (
       <SocialLink index={6} styleClass={styles.socialItem}/>
       <SocialLink index={7} styleClass={styles.socialItem}/>
     </div>
-  </Layout>
+  </>
 )
 
 export default AboutPage

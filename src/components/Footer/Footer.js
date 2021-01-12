@@ -32,7 +32,7 @@ const Footer = ({ siteMetadata }) => (
 
     <Logo fillColor="#2B2B2B"/>
     <span><CodeIcon/> with <HeartIcon/> by CodingArtist</span>
-    <span>Copyright © 2020. All Rights Reserved</span>
+    <span>Copyright © 2021. All Rights Reserved</span>
   </footer>
 )
 

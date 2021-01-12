@@ -5,8 +5,8 @@ import SEO from '@components/seo'
 // import Img from "gatsby-image"
 import { StaticQuery, graphql } from 'gatsby'  
 
-const NotFoundPage = ({headerImage}) => (
-  <Layout headerImage={headerImage}>
+const NotFoundPage = ({headerImage, location}) => (
+  <Layout headerImage={headerImage} location={location}>
     <SEO title="404: Not found" />
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
@@ -34,6 +34,7 @@ export default () => (
     render={data => (
       <NotFoundPage
         headerImage={data.file}
+        
       />
     )}
   />

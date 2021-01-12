@@ -1,6 +1,10 @@
 @import '@styles/_theme.scss';
 @import '@styles/_mixins.scss';
 
+* {
+  cursor: none;
+}
+
 html {
   // add site level custom font here, if applicable
   // font-family: 'Helvetica Neue', 'sans-serif';
@@ -21,8 +25,7 @@ body {
   color: $textPrimary;
   line-height: 1.6;
   background-color: $colorBG;
-  // cursor: none;
-  
+  overflow: hidden;
 }
 
 ::selection {
@@ -46,6 +49,12 @@ div p img {
 
 img {
   user-drag: none;
+}
+
+.tl-wrapper {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tl-edges {
@@ -81,5 +90,33 @@ img {
 
   p {
     text-align: justify;
+  }
+}
+
+
+
+
+// CUSTOM CURSOR
+.cursor {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  transition: all .1s ease-in-out;
+  transition-property: width, height, border;
+  will-change: width, height, transform, border;
+  pointer-events: none;
+  z-index: 999;
+
+  &.hovered {
+    background: transparent !important;
+    width: 56px;
+    height: 56px;
+    border: 4px solid #fff;
   }
 }

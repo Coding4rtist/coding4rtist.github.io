@@ -1,5 +1,54 @@
+
+
+
+
+
+
+
+
+
+// import React from "react";
+
+// const IndexPage = () => (
+//   <>
+//     <h1>Gatsby Using Page Transitions</h1>
+//     <p>Simple implementation of page transitions on a Gatsby website.</p>
+//     <ul>
+//       <li>
+//         <strong>Github Repo:</strong>{" "}
+//         <a
+//           href="https://github.com/ryanwiemer/gatsby-using-page-transitions"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           gatsby-using-page-transitions
+//         </a>
+//       </li>
+//       <li>
+//         <strong>Animation Library:</strong>{" "}
+//         <a
+//           href="https://www.framer.com/motion/"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Framer Motion
+//         </a>
+//       </li>
+//     </ul>
+//   </>
+// );
+
+// export default IndexPage;
+
+
+
+
+
+
+
+
 import React from 'react'
-import Layout from '@components/Layout'
+// import Layout from '@components/Layout'
 import SEO from '@components/seo'
 import { useStaticQuery, graphql } from 'gatsby'  
 import SectionTitle from '../components/SectionTitle'
@@ -47,15 +96,15 @@ query {
 }
 `
 
-const IndexPage = () =>  {
+const IndexPage = props =>  {
   const result = useStaticQuery(query);
-  const headerImage = result.banner.childImageSharp.fluid;
+  // const headerImage = result.banner.childImageSharp.fluid;
   const featureds = result.allJavascriptFrontmatter.edges[0].node.frontmatter.staticData.featureds;
 
 
-
   return (
-    <Layout headerImage={headerImage}>
+    // <Layout headerImage={headerImage} location={props.location}>
+    <>
     <SEO
       title="Developer - 3DArtist"
       keywords={[`artist`, `developer`, `engineer`, `3dartist`, `coding4rtist`]}
@@ -88,14 +137,14 @@ const IndexPage = () =>  {
             <img src={icon1} alt="Discovery"/>
             <div>
               <h5>Discovery</h5>
-              <p>I discover new techniques used by professionals and I try to learn and reuse them in new ideas.</p>
+              <p>I love discovering new techniques/styles and I try to learn and reuse them in new ideas.</p>
             </div>
           </div>
           <div className={styles.column}>
             <img src={icon2} alt="Design"/>
             <div>
               <h5>Design</h5>
-              <p>I'm a minimalist who truly believes that less is more. I also love futuristic and abstract art.</p>
+              <p>I'm a minimalist who truly believes that less is more. I also love futuristic and surreal art.</p>
             </div>
           </div>
           <div className={styles.column}>
@@ -110,7 +159,8 @@ const IndexPage = () =>  {
 
     </div>
       
-  </Layout>
+  </>
+
   )
 }
  

@@ -1,16 +1,24 @@
 // import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import PropTypes from 'prop-types'
+import React from 'react'
 import SmoothScrollbar from 'smooth-scrollbar';
+import Img from 'gatsby-image'
+import {motion} from 'framer-motion'
+
 import Logo from '../Icons/coding4rtist-logo'
 import styles from './Header.module.scss'
 
 import ArrowDown from '../Icons/down-arrow'
-import Img from "gatsby-image"
+
 
 import NavLinks from '../../data/nav-links'
 
-const Header = ({ siteData, headerImage = null }) => {
+
+// import {useGlobalStateContext} from '../../context/globalContext'
+
+const Header = ({ siteData, headerImage = null, onCursor }) => {
+  // const currentTheme = useGlobalStateContext();
+  // console.log(currentTheme)
   
   const executeScroll = () => {
     if(SmoothScrollbar.getAll() !== null) {
@@ -20,13 +28,13 @@ const Header = ({ siteData, headerImage = null }) => {
 
   return (
     <header className={headerImage === null ? styles.header : styles.headerBanner} >
-    <div className={styles.headerContainer}>
-      <div className={styles.logoContainer}>
+    <motion.div className={styles.headerContainer} animate={{y: 0, opacity: 1}} initial={{y: -72, opacity: 0}} transition={{duration: 1, ease: [0.6, 0.05, -0.01, 0.9]}}>
+      <div className={styles.logoContainer}  onMouseEnter={() => onCursor('hovered')} onMouseLeave={onCursor}>
         <Logo fillColor={headerImage === null ? "#000" : "#fff"}/>
       </div>
 
       <NavLinks styleClass={headerImage === null ? styles.menu : styles.menuAlt} activeStyleClass={styles.active}/>
-    </div>
+    </motion.div>
 
     {headerImage!==null && 
         <div>

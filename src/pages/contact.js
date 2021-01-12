@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Layout from '@components/Layout'
+// import Layout from '@components/Layout'
 import SEO from '@components/seo'
 import SectionTitle from '@components/SectionTitle'
 import ErrorIcon from '@components/Icons/error-icon'
@@ -78,7 +78,8 @@ class ContactPage extends React.Component {
 
   render() {
     return (
-      <Layout>
+      // <Layout location={this.props.location}>
+      <>
         <SEO title="Contact" />
         <SectionTitle title="CONTACT ME" subtitle="Complete the form below to contact me" id="main-content"/>
         <form className={styles.contactForm} onSubmit={this.handleSubmit}>
@@ -123,7 +124,7 @@ class ContactPage extends React.Component {
             <input className={styles.submitButton} type="submit" value="Submit"/>
           </div>
         </form>
-      </Layout>
+      </>
     )
   }
 
