@@ -1,0 +1,7 @@
+# Gatsby files
+node_modules/
+.cache/
+public
+
+# Dotenv Environment Variables
+.env*
