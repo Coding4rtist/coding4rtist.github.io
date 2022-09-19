@@ -12,7 +12,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // const Text = ({ children }) => <p className="align-center">{children}</p>
 
 import ProjectHeader from '@components/projectPage/projectHeader'
-import ProjectBody from '@components/projectPage/ProjectBody'
+import ProjectBody from '@components/projectPage/projectBody'
 
 import { PageContent } from '@styles/globalStyles'
 

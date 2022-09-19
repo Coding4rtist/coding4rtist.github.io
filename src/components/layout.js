@@ -10,8 +10,8 @@ import { GlobalStyle } from '@styles/globalStyles'
 import { BreakpointProvider } from '@components/breakpoint'
 import Header from '@components/header'
 import Cursor from '@components/customCursor'
-import CustomScrollbar from '@components/Scrollbar'
-import Transition from '@components/Transition'
+import CustomScrollbar from '@components/scrollbar'
+import Transition from '@components/transition'
 
 // Context
 import {
@@ -20,7 +20,7 @@ import {
 } from '@context/globalContext'
 
 // Hooks
-import useWindowSize from '@hooks/useWIndowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 const queries = {
 	xs: '(max-width: 576px)',
