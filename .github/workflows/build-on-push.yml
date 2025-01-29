@@ -1,11 +1,10 @@
 name: Gatsby Build on Push
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   push:
     branches:
       - main
-      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -14,32 +13,34 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18' # Aggiornato alla versione più recente (LTS)
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-#       - run: npm ci
-      - run: npm install
-      - run: npm run build
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Gatsby Site
+        run: npm run build
         env:
           CONTENTFUL_SPACEID: ${{ secrets.CTFL_SPACEID }}
           CONTENTFUL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-

@@ -1,56 +1,45 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import * as React from 'react';
+import { Link } from 'gatsby';
+import Seo from '@components/Seo';
+import Button from '@components/Button';
+import icon404 from '@images/404.png';
+import noiseImage from '@images/noise.gif';
 
-import { PageContent } from '@styles/globalStyles'
+import '../styles/404.css';
 
-// styles
-const pageStyles = {
-	color: '#232129',
-	padding: '96px',
-	fontFamily: '-apple-system, Roboto, sans-serif, serif',
-}
-const headingStyles = {
-	marginTop: 0,
-	marginBottom: 64,
-	maxWidth: 320,
-}
-
-const paragraphStyles = {
-	marginBottom: 48,
-}
-const codeStyles = {
-	color: '#8A6534',
-	padding: 4,
-	backgroundColor: '#FFF4DB',
-	fontSize: '1.25rem',
-	borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = () => {
 	return (
-		<main style={pageStyles}>
-			<title>Not found</title>
-			<h1 style={headingStyles}>Page not found</h1>
-			<p style={paragraphStyles}>
-				Sorry{' '}
-				<span role="img" aria-label="Pensive emoji">
-					😔
-				</span>{' '}
-				we couldn’t find what you were looking for.
-				<br />
-				{process.env.NODE_ENV === 'development' ? (
-					<>
-						<br />
-						Try creating a page in <code style={codeStyles}>src/pages/</code>.
-						<br />
-					</>
-				) : null}
-				<br />
-				<Link to="/">Go home</Link>.
-			</p>
-		</main>
-	)
-}
+		<main className="console flex items-center w-screen h-screen">
+			{/* Noise Effect */}
+			<div
+				className="noise"
+				style={{ backgroundImage: `url(${noiseImage})` }}
+			/>
+			{/* Overlay */}
+			<div className="overlay" />
 
-export default NotFoundPage
+			{/* Terminal */}
+			<div className="flex flex-col items-center select-none z-20 mx-auto max-w-3xl p-8 text-white text-center">
+				<img src={icon404} alt="" className="w-52 h-52 flex" />
+				<h1 className="text-5xl md:text-8xl font-bold text-white  uppercase">
+					Error 404
+				</h1>
+				<h3 className="output my-4 text-2xl md:text-4xl text-primary-400 uppercase">
+					Look like you're lost
+				</h3>
+				<p className="my-4 text-xl text-white mb-10">
+					The page you are looking for does not exist.
+				</p>
+				<Link to="/">
+					<Button>
+						<span>Go to Home</span>
+					</Button>
+				</Link>
+			</div>
+		</main>
+	);
+};
+
+export default NotFoundPage;
+
+export const Head = () => <Seo />;

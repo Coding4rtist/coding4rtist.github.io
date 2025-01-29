@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Neue Haas Grotesk Display';
+	font-style: normal;
+	font-weight: normal;
+	src: url('./fonts/NeueHaasDisplayRoman.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Neue Haas Grotesk Display';
+	font-style: normal;
+	font-weight: bold;
+	src: url('./fonts/NeueHaasDisplayBold.woff') format('woff');
+}
+
+@layer base {
+	body {
+		@apply bg-darkslate-700 md:h-screen flex flex-col justify-center items-center;
+	}
+}
+
+body {
+	margin: 0;
+	font-family: 'Neue Haas Grotesk Display', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
