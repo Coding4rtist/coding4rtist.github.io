@@ -2,7 +2,7 @@ import * as React from 'react';
 import Card from '@components/Card';
 import Pulse from '@components/Pulse';
 
-function Contacts() {
+function NowCard() {
 	return (
 		<Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
 			<div className="flex justify-between w-full items-center mb-2">
@@ -25,4 +25,4 @@ function Contacts() {
 	);
 }
 
-export default Contacts;
+export default NowCard;

@@ -1,13 +1,25 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { motion } from 'framer-motion';
 import Layout from '@layouts/Layout';
 import Seo from '@components/Seo';
 import Card from '@components/Card';
 import AboutMe from '@components/AboutMe';
-import ArtCard from '@components/ArtCard';
-import GamesCard from '@components/GamesCard';
+import ArtCard from '@components/Art';
+import GamesCard from '@components/Games';
 import Now from '@components/Now';
 import Globe from '@components/Globe';
+import TimelineCard from '@components/Timeline';
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.25,
+		},
+	},
+};
 
 const IndexPage = () => {
 	const query = graphql`
@@ -27,7 +39,7 @@ const IndexPage = () => {
 							gatsbyImageData(
 								width: 1200
 								layout: CONSTRAINED
-								placeholder: TRACED_SVG
+								placeholder: DOMINANT_COLOR
 								formats: [AUTO, WEBP]
 							)
 						}
@@ -54,7 +66,7 @@ const IndexPage = () => {
 							gatsbyImageData(
 								width: 1200
 								layout: CONSTRAINED
-								placeholder: TRACED_SVG
+								placeholder: DOMINANT_COLOR
 								formats: [AUTO, WEBP]
 							)
 						}
@@ -75,23 +87,23 @@ const IndexPage = () => {
 			description="I'm a Game Developer and 3D Artist based in Italy."
 			className=""
 		>
-			<main className="text-white m-auto p-2 grid gap-2 max-w-[115rem] overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:h-screen md:gap-3 md:p-6 xl:h-screen xl:grid-rows-8 xl:grid-cols-4 xl:gap-4 xl:max-h-[90%]">
+			<motion.main
+				className="text-white m-auto p-2 grid gap-2 max-w-[115rem] overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:h-screen md:gap-3 md:p-6 xl:h-screen xl:grid-rows-8 xl:grid-cols-4 xl:gap-4 xl:max-h-[90%]"
+				variants={containerVariants}
+				initial="hidden"
+				animate="show"
+			>
 				<AboutMe />
 				<Now />
 				<GamesCard items={projects} />
 				<ArtCard items={artworks} />
-				<Card
-					colSpan="md:col-span-1"
-					rowSpan="md:row-span-4 flex gap-4"
-					title="Timeline"
-					// href="/blog"
-				/>
+				<TimelineCard />
 				<Card
 					colSpan="md:col-span-1"
 					rowSpan="md:row-span-3"
 					title="Countries I visited"
 				>
-					<div className="h-full w-full absolute inset-0 -z-10">
+					<div className="h-full w-full absolute inset-0">
 						<Globe />
 					</div>
 				</Card>
@@ -113,7 +125,7 @@ const IndexPage = () => {
 						© 2025 · Crafted with 💛 by Coding4rtist.
 					</p>
 				</Card>
-			</main>
+			</motion.main>
 		</Layout>
 	);
 };

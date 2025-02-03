@@ -6,6 +6,8 @@
  */
 
 import * as React from 'react';
+import { isMobile } from 'react-device-detect';
+import Cursor from '@components/Cursor';
 
 // Components
 
@@ -31,7 +33,12 @@ const Layout = ({ children, location }) => {
 	// 	root.classList.add('dark');
 	// }
 
-	return <>{children}</>;
+	return (
+		<>
+			{children}
+			{!isMobile && <Cursor />}
+		</>
+	);
 };
 
 export default Layout;
