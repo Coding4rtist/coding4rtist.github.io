@@ -11,7 +11,7 @@ function Art({ items }) {
 			rowSpan="md:row-span-5"
 			title="Latest Artworks"
 		>
-			<EmblaCarousel slides={items} options={OPTIONS} />
+			<EmblaCarousel slides={items} options={OPTIONS} objectFit={'cover'} />
 		</Card>
 	);
 }

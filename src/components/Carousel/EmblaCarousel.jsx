@@ -1,15 +1,17 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 import Button from '@components/Button';
 
 const TWEEN_FACTOR_BASE = 0.2;
 
-const EmblaCarousel = props => {
-	const { slides, options } = props;
+const EmblaCarousel = ({ slides, options, objectFit }) => {
 	const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-	const [emblaRef, emblaApi] = useEmblaCarousel(options);
+	const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+		Autoplay({ playOnInit: true, delay: 5000 }),
+	]);
 	const tweenFactor = useRef(0);
 	const tweenNodes = useRef([]);
 
@@ -99,6 +101,7 @@ const EmblaCarousel = props => {
 										<GatsbyImage
 											image={image}
 											alt={slide.title}
+											objectFit={objectFit}
 											class="embla__slide__img embla__parallax__img"
 										/>
 										<div className="absolute w-full h-full flex flex-col bg-[radial-gradient(_rgba(0,0,0,0.2)_60%,rgba(0,0,0,0.7)_130%_)] text-white transition-opacity duration-200 ease-[ease] p-4 select-none">

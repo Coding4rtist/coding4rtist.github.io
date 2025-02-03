@@ -7,7 +7,7 @@ const OPTIONS = { loop: true };
 function Games({ items }) {
 	return (
 		<Card colSpan="xl:col-span-2" rowSpan="md:row-span-4" title="Latest Games">
-			<EmblaCarousel slides={items} options={OPTIONS} />
+			<EmblaCarousel slides={items} options={OPTIONS} objectFit={'contain'} />
 		</Card>
 	);
 }

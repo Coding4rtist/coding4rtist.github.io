@@ -25,7 +25,7 @@ const IndexPage = () => {
 	const query = graphql`
 		query {
 			allContentfulProject(
-				limit: 4
+				limit: 5
 				sort: { fields: [date], order: DESC }
 				filter: { featured: { eq: true } }
 			) {
@@ -37,7 +37,7 @@ const IndexPage = () => {
 						date
 						thumbnail {
 							gatsbyImageData(
-								width: 1200
+								width: 1000
 								layout: CONSTRAINED
 								placeholder: DOMINANT_COLOR
 								formats: [AUTO, WEBP]
@@ -52,7 +52,7 @@ const IndexPage = () => {
 				}
 			}
 			allContentfulArt(
-				limit: 4
+				limit: 5
 				sort: { fields: [date], order: DESC }
 				filter: { featured: { eq: true } }
 			) {
@@ -64,11 +64,16 @@ const IndexPage = () => {
 						date
 						thumbnail {
 							gatsbyImageData(
-								width: 1200
+								height: 1000
 								layout: CONSTRAINED
 								placeholder: DOMINANT_COLOR
 								formats: [AUTO, WEBP]
 							)
+						}
+						buttons {
+							id
+							title
+							url
 						}
 					}
 				}
@@ -79,7 +84,7 @@ const IndexPage = () => {
 	const result = useStaticQuery(query);
 	const projects = result.allContentfulProject.edges.map(el => el.node);
 	const artworks = result.allContentfulArt.edges.map(el => el.node);
-	console.log(projects, artworks);
+	// console.log(projects, artworks);
 
 	return (
 		<Layout
