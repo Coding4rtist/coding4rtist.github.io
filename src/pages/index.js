@@ -90,47 +90,52 @@ const IndexPage = () => {
 		<Layout
 			title="Coding4rtist"
 			description="I'm a Game Developer and 3D Artist based in Italy."
-			className=""
 		>
-			<motion.main
-				className="text-white m-auto p-2 grid gap-2 max-w-[115rem] overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:h-screen md:gap-3 md:p-6 xl:h-screen xl:grid-rows-8 xl:grid-cols-4 xl:gap-4 xl:max-h-[90%]"
-				variants={containerVariants}
-				initial="hidden"
-				animate="show"
-			>
-				<AboutMe />
-				<Now />
-				<GamesCard items={projects} />
-				<ArtCard items={artworks} />
-				<TimelineCard />
-				<Card
-					colSpan="md:col-span-1"
-					rowSpan="md:row-span-3"
-					title="Countries I visited"
+			<div className="md:h-screen md:overflow-y-auto flex">
+				<motion.main
+					className="text-white m-auto p-2 grid gap-2 max-w-[115rem] relative w-full 
+               sm:p-4 sm:gap-2 
+               md:grid-cols-2 md:gap-3 md:p-6 
+               xl:h-screen xl:grid-rows-8 xl:grid-cols-4 xl:gap-4"
+					variants={containerVariants}
+					initial="hidden"
+					animate="show"
 				>
-					<div className="h-full w-full absolute inset-0">
-						<Globe />
-					</div>
-				</Card>
-				<Card
-					colSpan="md:col-span-1"
-					rowSpan="md:row-span-1"
-					justify="justify-center"
-				>
-					<p className="text-2xl text-center underline underline-offset-8 decoration-3 decoration-primary-500">
-						Always learning. Always improving.
-					</p>
-				</Card>
-				<Card
-					colSpan="md:col-span-1"
-					rowSpan="md:row-span-1"
-					justify="justify-center"
-				>
-					<p className="text-xl text-center">
-						© 2025 · Crafted with 💛 by Coding4rtist.
-					</p>
-				</Card>
-			</motion.main>
+					<AboutMe />
+					<Now />
+					<GamesCard items={projects} />
+					<ArtCard items={artworks} />
+					<TimelineCard />
+					<Card
+						colSpan="md:col-span-1"
+						rowSpan="md:row-span-4 lg:row-span-3"
+						title="Countries I visited"
+						height="h-[300px] sm:h-[300px] md:h-full"
+					>
+						<div className="h-full w-full absolute inset-0">
+							<Globe />
+						</div>
+					</Card>
+					<Card
+						colSpan="md:col-span-1"
+						rowSpan="md:row-span-1"
+						justify="justify-center"
+					>
+						<p className="text-2xl text-center underline underline-offset-8 decoration-3 decoration-primary-500">
+							Always learning. Always improving.
+						</p>
+					</Card>
+					<Card
+						colSpan="md:col-span-1"
+						rowSpan="md:row-span-1"
+						justify="justify-center"
+					>
+						<p className="text-xl text-center">
+							© 2025 · Crafted with 💛 by Coding4rtist.
+						</p>
+					</Card>
+				</motion.main>
+			</div>
 		</Layout>
 	);
 };

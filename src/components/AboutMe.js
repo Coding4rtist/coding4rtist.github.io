@@ -13,7 +13,7 @@ import { FaLinkedin } from 'react-icons/fa6';
 
 function AboutMeCard() {
 	return (
-		<Card colSpan="md:col-span-1" rowSpan="md:row-span-12 lg:row-span-8">
+		<Card colSpan="md:col-span-1" rowSpan="md:row-span-6 lg:row-span-8">
 			<h1 className="m-0 font font-bold text-4xl text-primary-500 uppercase text-center">
 				Coding4rtist
 			</h1>
