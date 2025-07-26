@@ -19,6 +19,7 @@ const visitedCountries = [
 	'Greece',
 	'Poland',
 	'Denmark',
+	'Netherlands',
 ];
 
 const GlobeComponent = () => {
