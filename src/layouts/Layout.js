@@ -1,43 +1,10 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
 import * as React from 'react';
-// import { isMobile } from 'react-device-detect';
-// import Cursor from '@components/Cursor';
 
-// Components
-
-const Layout = ({ children, location }) => {
-	// const data = useStaticQuery(graphql`
-	// 	query SiteTitleQuery {
-	// 		site {
-	// 			siteMetadata {
-	// 				title
-	// 			}
-	// 		}
-	// 	}
-	// `);
-
-	// Context
-	// const globalStateContext = useGlobalStateContext();
-	// const { currentTheme, cursorStyles } = globalStateContext;
-
-	// const root = document.documentElement;
-	// if (currentTheme === 'light') {
-	// 	root.classList.remove('dark');
-	// } else {
-	// 	root.classList.add('dark');
-	// }
-
+const Layout = ({ children }) => {
 	return (
-		<>
-			{children}
-			{/* {!isMobile && <Cursor />} */}
-		</>
+		<div className="relative min-h-screen w-full bg-dark-bg text-white selection:bg-primary-500 selection:text-black">
+			<main className="relative z-10 w-full h-full">{children}</main>
+		</div>
 	);
 };
 

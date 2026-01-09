@@ -1,6 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+	--color-primary-400: #facc15;
+	--color-primary-500: #eab308;
+	--color-primary-600: #ca8a04;
+
+	--color-bg-dark: #050505;
+	--color-card: #0f0f0f; /* Un filo più chiaro dello sfondo */
+	--color-border: #262626;
+
+	--font-display: 'Neue Haas Grotesk Display', sans-serif;
+
+	--animate-fade-in: fadeIn 0.5s ease-out forwards;
+
+	/* DEFINIZIONE ANIMAZIONE QUI */
+	--animate-heartbeat: heartbeat 1.5s ease-in-out infinite;
+
+	@keyframes heartbeat {
+		0%,
+		100% {
+			transform: scale(1);
+		}
+		15% {
+			transform: scale(1.25);
+		} /* Ridotto leggermente per non sbordare */
+		30% {
+			transform: scale(1);
+		}
+		45% {
+			transform: scale(1.25);
+		}
+		60% {
+			transform: scale(1);
+		}
+	}
+}
 
 @font-face {
 	font-family: 'Neue Haas Grotesk Display';
@@ -18,63 +52,51 @@
 
 @layer base {
 	body {
-		@apply bg-darkslate-700 md:h-screen flex flex-col justify-center items-center;
+		background-color: var(--color-bg-dark);
+		color: #ededed;
+		font-family: var(--font-display);
+		overflow-x: hidden;
+		/* Sfondo Vercel-like: Gradiente radiale molto sottile al centro/alto */
+		background-image: radial-gradient(
+				circle at 50% 0%,
+				rgba(120, 119, 198, 0.1) 0%,
+				transparent 40%
+			),
+			radial-gradient(
+				circle at 80% 10%,
+				rgba(234, 179, 8, 0.05) 0%,
+				transparent 30%
+			);
 	}
 }
 
-body {
-	margin: 0;
-	font-family: 'Neue Haas Grotesk Display', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	/* cursor: none; */
+@layer utilities {
+	/* Utility per nascondere scrollbar ma permettere scroll */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	/* Card base style */
+	.bento-card {
+		@apply relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md transition-colors hover:border-white/10;
+	}
 }
 
-/* CURSOR */
-.cursor {
-	position: fixed;
-	border-radius: 100%;
-	transform: translate(-50%, -50%);
-	transition: all 0.1s ease-in-out;
-	transition-property: width, height, border;
-	will-change: width, height, transform, border;
-	pointer-events: none;
-	z-index: 999;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
 }
-
-.cursor-outer {
-	background: none;
-	width: 32px;
-	height: 32px;
-	border: solid 2px #eab308;
-	transition: all 0.2s ease, top 0s ease-out, left 0s ease-out;
+::-webkit-scrollbar-track {
+	background: var(--color-dark-bg);
 }
-
-.cursor-inner {
-	width: 8px;
-	height: 8px;
-	background: #fff;
-	mix-blend-mode: difference;
+::-webkit-scrollbar-thumb {
+	background: #333;
+	border-radius: 3px;
 }
-
-.cursor-inner.plus::before,
-.cursor-inner.plus::after,
-.cursor-inner.minus::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: -11px;
-	height: 22px;
-	width: 3px;
-	background: #fff;
-}
-
-.cursor-inner.plus::before {
-	transform: rotate(0deg);
-	mix-blend-mode: hard-light;
-}
-
-.cursor-inner.plus::after,
-.cursor-inner.minus::before {
-	transform: rotate(90deg);
-	mix-blend-mode: difference;
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-primary-500);
 }

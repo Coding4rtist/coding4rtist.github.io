@@ -1,6 +1,6 @@
 .console {
 	background-color: #000000;
-	background-image: radial-gradient(#575811, #161504);
+	background-image: radial-gradient(#57581112, #161504);
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-shadow: 0 0 1ex rgb(255, 252, 51), 0 0 2px rgba(255, 255, 255, 0.8);
@@ -79,4 +79,133 @@
 	);
 	background-repeat: no-repeat;
 	animation: scan 7.5s linear infinite;
+}
+
+/* Caret blink */
+.caret {
+	display: inline-block;
+	animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Pac-Man Easter Egg */
+.pac-chase-wrapper {
+	position: absolute;
+	top: 50%;
+	left: -150px; /* Posizione di partenza (nascosto a sx) */
+	transform: translateY(-50%);
+	width: 100px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	/* LOGICA DEL TEMPO */
+	/* Durata totale del ciclo (Movimento + Pausa) */
+	animation: runAcross 8s linear infinite;
+
+	/* Delay iniziale prima che parta la prima volta */
+	animation-delay: 2s;
+
+	/* Assicura che rimanga nascosto durante il delay iniziale */
+	animation-fill-mode: backwards;
+}
+
+@keyframes runAcross {
+	/* FASE 1: Movimento (da 0% a 40%) */
+	0% {
+		left: -150px;
+	}
+	40% {
+		left: 110%;
+	} /* Arriva a fine schermo (nascosto a dx) */
+
+	/* FASE 2: Pausa (da 40% a 100%) */
+	/* Rimane nascosto a destra fino alla fine del ciclo temporale */
+	100% {
+		left: 110%;
+	}
+}
+
+/* --- PACMAN (Invariato) --- */
+.pacman-body {
+	position: absolute;
+	right: 0;
+	width: 0;
+	height: 0;
+	border: 14px solid #eab308;
+	border-radius: 50%;
+	border-right-color: transparent;
+	animation: chomp 0.2s linear infinite;
+	z-index: 2;
+}
+
+@keyframes chomp {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(45deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* --- GHOST (Invariato) --- */
+.ghost-body {
+	position: absolute;
+	left: 0;
+	width: 28px;
+	height: 28px;
+	background: #ef4444;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+	animation: bounce 0.4s ease-in-out infinite alternate;
+	z-index: 1;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(-2px);
+	}
+	100% {
+		transform: translateY(2px);
+	}
+}
+
+.ghost-eyes {
+	display: flex;
+	justify-content: space-between;
+	padding: 6px 4px 0 4px;
+}
+.eye {
+	width: 8px;
+	height: 8px;
+	background: white;
+	border-radius: 50%;
+	position: relative;
+}
+.eye::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	right: 1px;
+	width: 4px;
+	height: 4px;
+	background: blue;
+	border-radius: 50%;
+}
+.ghost-skirt {
+	position: absolute;
+	bottom: -4px;
+	width: 100%;
+	height: 6px;
+	background-image: radial-gradient(circle, #ef4444 70%, transparent 75%);
+	background-size: 7px 100%;
+	background-repeat: repeat-x;
 }

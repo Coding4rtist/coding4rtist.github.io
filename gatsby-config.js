@@ -13,7 +13,7 @@ module.exports = {
 		title: `Coding4rtist Portfolio`,
 		author: `CodingArtist`,
 		description: `I'm Coding4rtist, a Developer and 3D Artist`,
-		siteUrl: `https://www.yourdomain.tld`,
+		siteUrl: `https://www.coding4rtist.github.io`,
 	},
 	plugins: [
 		{
@@ -33,6 +33,10 @@ module.exports = {
 			options: {
 				name: `Carlo Acanfora`,
 				short_name: `CA`,
+				start_url: `/`,
+				background_color: `#0a0a0a`,
+				theme_color: `#eab308`,
+				display: `standalone`,
 				icon: 'src/images/favicon.png',
 			},
 		},
